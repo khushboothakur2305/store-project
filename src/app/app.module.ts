@@ -6,16 +6,17 @@ import { AppComponent } from './app.component';
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-const metaReducers: Array<MetaReducer<any, any>> = [];
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {metaReducers}),
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([])
   ],
   providers: [],

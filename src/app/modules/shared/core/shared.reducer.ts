@@ -1,48 +1,23 @@
 import * as SharedActions from './shared.actions';
-import {createReducer, on} from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 
 // State for this feature (Account)
 export interface SharedState {
-  loading: number[];
-  language: number;
-  country: string;
-  uuid: string;
-  countriesList: any[];
+  counter: number
 }
 
 const initialState: SharedState = {
-  loading: [],
-  language: 2,
-  country: '6239e4ade62563250aee7837',
-  uuid: '',
-  countriesList: [],
+  counter: 0
 };
 
 export const reducer = createReducer(
   initialState,
-
-  // CLEAR STATE
-  on(SharedActions.ClearState, (state) => ({
-    ...initialState,
-    language: state.language,
-    country: state.country,
-    countriesList: state.countriesList,
-  })),
-  // START LOADING
-  on(SharedActions.StartLoading, (state) => ({
-    ...state,
-    loading: [...state.loading, 1],
-  })),
-
-  // STOP LOADING
-  on(SharedActions.StopLoading, (state) => ({
-    ...state,
-    loading: [...state.loading].slice(1),
-  })),
-
+  on(SharedActions.AddCounter, (state) => ({ ...state, counter: state.counter + 1 })),
+  on(SharedActions.RemoveCounter, (state) => ({ ...state, counter: state.counter - 1 })),
   // CLEAR LOADING
+
   on(SharedActions.ClearLoading, (state) => ({
     ...state,
-    loading: [],
+
   })),
 );

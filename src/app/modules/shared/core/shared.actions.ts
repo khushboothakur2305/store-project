@@ -16,3 +16,11 @@ export const StopLoading = createAction(STOP_LOADING);
 /******** CLEAR LOADING ***********/
 const CLEAR_LOADING = '[shared] clear loading';
 export const ClearLoading = createAction(CLEAR_LOADING);
+
+
+const ADD_COUNTER= '[shared] add counter'
+export const AddCounter = createAction(ADD_COUNTER)
+
+
+const REMOVE_COUNTER= '[shared] remove counter'
+export const RemoveCounter = createAction(REMOVE_COUNTER)
