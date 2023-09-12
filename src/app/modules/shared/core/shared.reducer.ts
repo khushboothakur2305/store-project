@@ -18,6 +18,17 @@ const initialState: SharedState = {
   countriesList: [],
 };
 
+export function addProductReducer(state: any[] = [], action:any) {
+    switch (action.type) {
+      case 'Increase':
+          return [...state, action.payload];
+      case 'Decrease':
+          return [...state, action.payload];
+      default:
+          return state;
+      }
+  }
+
 export const reducer = createReducer(
   initialState,
 

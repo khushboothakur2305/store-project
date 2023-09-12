@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
+import { MetaReducer, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { addProductReducer } from "./modules/shared/core/shared.reducer";
 
 const metaReducers: Array<MetaReducer<any, any>> = [];
 
@@ -15,7 +16,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [];
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {metaReducers}),
+    StoreModule.forRoot({shared: addProductReducer}),
     EffectsModule.forRoot([])
   ],
   providers: [],
